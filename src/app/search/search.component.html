@@ -1,0 +1,32 @@
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
+<html>
+
+<body>
+
+  <a href="ACJME8249.img"></a>
+
+  <h1 align="center"><B>Want a Music?</B></h1>
+
+  <p align="center" class="need"><B>Use AFZMusic-Spotify. Fullfill your music Desire</B></p>
+  <form>
+    <div align="center" class="form-group">
+      <input align="center" class="w3-input" type="text" [(ngModel)]="searchStr" placeholder="Search Artist"
+        [ngModelOptions]="{ standalone: true }" />
+    </div>
+    <button align="center" class="w3-button w3-teal" type="submit" (click)="searchMusic()" name="submit"
+      value="submit">Submit
+    </button>
+  </form>
+  <ng-container *ngIf="listOfMusic !== null">
+    <div *ngFor="let artist of listOfMusic">
+      <p align="center"><img *ngIf="artist.images.length > 0" [src]="artist.images[0].url" alt="No image"
+          class="center" /></p>
+      <p>
+      </p>
+      <p class="name">Profile of {{ artist.name }}</p>
+      <p align="center">Music Genres: {{ artist.genres }}</p>
+      <p align="center">Number of Followers: {{ artist.followers.total }}</p>
+      <p align="center">Popularity: {{ artist.popularity }}</p>
+      <p align="center">Stage Name: {{ artist.name }}</p>
+    </div>
+  </ng-container>
